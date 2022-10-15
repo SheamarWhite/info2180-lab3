@@ -50,7 +50,8 @@ const winConditions = [
   [0,4,8],
   [2,4,6]
 ];
-const btn = document.querySelector("button");
+const press = document.querySelector("button");
+//console.log(btn);
 let currentPlayer = "X";
 let options = ["", "", "", "", "", "", "", "", ""];
 let running = false;
@@ -59,7 +60,7 @@ startGame();
 
 function startGame(){
   cell.forEach(cell => cell.addEventListener("click", cellClicked));
-  btn.addEventListener("clicked", restartGame);
+  press.addEventListener("click", restartGame);
   running = true;
 }
 
@@ -81,6 +82,7 @@ function restartGame(){
   document.getElementById("status").textContent = "Move your mouse over a square and click to play an X or an O.";
   cell.forEach(cell => cell.textContent = "");
   running = false;
+  startGame();
 }
 
 function updateCell(cell, index){
